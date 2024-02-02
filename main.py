@@ -1,5 +1,8 @@
 from Manager import manager
+import argparse
 
-tasks_file = input("Введите название json файла с задачами: ")
-history_file = input("Введите название txt файла с историей: ")
-manager(tasks_file, history_file)
+parser = argparse.ArgumentParser(description="Файл с задачами")
+parser.add_argument('file', type=str)
+args = parser.parse_args() #за эти три строчки спасибо Авдееву Жене
+
+manager(args.file, "history.txt")
